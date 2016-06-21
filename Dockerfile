@@ -9,5 +9,5 @@ RUN \
   apt-get autoremove -y && \
   cd /usr/src && curl -O http://mirror.fhpaas.fasthosts.net.uk/docker/Zend-Framework-2.5.1-Skeleton.tar.gz && \
   rm -rf /var/lib/apt/lists/* && \
-  chmod -R 755 /var/www && \
+  chmod -R 777 /var/www && \
   chmod -R 755 /hooks /init
