@@ -7,7 +7,14 @@ RUN \
   apt-get update && \
   apt-get install -y git && \
   apt-get autoremove -y && \
-  cd /usr/src && curl -O http://mirror.fhpaas.fasthosts.net.uk/docker/Zend-Framework-2.5.1-Skeleton.tar.gz && \
+  mkdir /usr/src/tmp /usr/src/tmp/zend && \
+  chmod -R 777 /usr/src/tmp && \
+  cd /usr/src/tmp/zend && \
+  composer create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application . && \
+  mv public html && \
+  tar cfj /usr/src/tmp/zf2.tar.bz2 . && \
+  cd .. && \
+  rm -rf /usr/src/tmp/zend && \
   rm -rf /var/lib/apt/lists/* && \
   chmod -R 777 /var/www && \
   chmod -R 755 /hooks /init
