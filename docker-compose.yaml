@@ -2,7 +2,7 @@ version: '2'
 services:
   ubuntu-16-nginx-php-7.0-zend-2:
     build: .
-    image: ubuntu-16-nginx-php-7.0-zend-2:latest
+    image: ubuntu-16-nginx-php-7.0-zend-2
     ports:
       - "8080:8080"
     user: "100000"
